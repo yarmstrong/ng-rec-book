@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { AuthService } from 'app/auth/auth.service';
@@ -9,10 +9,12 @@ import { AuthService } from 'app/auth/auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
+  @ViewChild('el') el: ElementRef;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.el.nativeElement.focus();
   }
 
   onSignin(f: NgForm) {
